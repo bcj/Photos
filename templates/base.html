@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% block head %}
+    <title>{{page_title}}</title>
+    <link rel="stylesheet" type="text/css" href="{{path_to_root}}/style.css" >
+    {% endblock %}
+</head>
+<body>
+    {% if navbar %}<nav>
+        <a href="{{path_to_root}}/index.html">🏡 Home</a>
+        {% for path, title in navbar %}
+        | <a href="{{path_to_root}}/{{path}}">{{title}}</a>
+        {% endfor %}
+        {% if backward or forward %}
+        <hr>
+        <div class="page-navigation">
+        <span class="nav-item">{% if backward %}<a href="./{{backward}}">previous</a>{% endif %}</span>
+        |
+        <span class="nav-item">{% if forward %}<a href="./{{forward}}">next</a>{% endif %}</span>
+        </div>
+        {% endif %}
+    </nav>{% endif %}
+    <main>
+    {% block body %}{% endblock %}
+    </main>
+</body>
+</html>

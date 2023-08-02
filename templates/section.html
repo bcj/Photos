@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block body %}
+        <article>
+            <h1>{{page_title}}</h1>
+            {% if description %}<p>{{description}}</p>{% endif %}
+            <ul>{% for entry in entries | reverse %}
+                <li><a href="{{entry.slug}}">{{entry.date}}{% if entry.title %}: {{entry.title}}{% endif %}</a>{% if entry.comments %} (<a href="{{entry.slug}}#comments">{{entry.comments | count}} comment{% if entry.comments | count != 1 %}s{% endif %}</a>){% endif %}</li>
+            {% endfor %}</ul>
+        </article>
+        <footer>🛜 <a href="./atom.xml">atom</a> / <a href="./rss.xml">rss</a></footer>
+{% endblock %}

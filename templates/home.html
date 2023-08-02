@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block body %}
+        <article>
+            <h1>{{page_title}}</h1>
+            <dl>{% for name, info in sections.items() | sort %}
+                <dt><a href="{{path_to_root}}/{{info.slug}}/index.html">{{name}}</a></dt>
+                <dd>{{info.description}}</dd>
+            {% endfor %}</dl>
+        </article>
+        <footer>🛜 <a href="./atom.xml">atom</a> / <a href="./rss.xml">rss</a></footer>
+{% endblock %}

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>{{page_title}}</title>
+</head>
+<body>
+    <main>
+        <article>
+            <h1>{{page_title}}</h1>
+            <h4>{{date}}</h4>
+            {% if description %}<p>{{description}}</p>{% endif %}
+            {% for info in images %}
+            <img src="{{path_to_root}}/images/{{info.file}}" alt="{{info.image.alt}}">
+            {% if info.image.caption %}<p>{{info.image.caption}}</p>{% endif %}
+            {% endfor %}
+        </article>
+    </main>
+</body>
+</html>

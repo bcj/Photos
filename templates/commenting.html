@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block body %}
+        <article>
+            <h1>Commenting</h1>
+            <p>
+                Comments on this blog are managed via email—the only way to post/edit/delete comments is by emailing me.
+                This isn't an automated process—I will read your email and then add it to the page if it isn't spam or otherwise inappropriate.
+                As such, comments wlil be moderated by me and added at my leisure.
+            </p>
+
+            <h4 id="white-to-include">What to Include</h4>
+            <p>
+                Please make it obvious which post you're referring to.
+                If you use the <code>mailto:</code> link, I should have all the information I need.
+                If you want to edit or delete a post, I'd prefer it if you reply to your original email but as long as it's obvious what you're referring to it's fine to send a new email.
+            </p>
+            <p>
+                If this is your first time commenting, please include a username that your post should be listed under.
+                Usernames must be unique (I'll email you back in the unlikely case that there's a conflict) and you must use the same username for all of your posts.
+                There are no set restrictions on usernames but I'll be accepting them at my own discression.
+                If no username is supplied, I'll assign you a unique anonymous name.
+                You can update your username by emailing me and asking me to change it.
+            </p>
+            <p>
+                If you want your username to link to a personal website (or to a Cohost/Mastodon/etc. account), let me know.
+                I'm only going to include it if I know who you are but I also assume that the only people posting will be people I know.
+            </p>
+
+            <h4 id="post-formatting">Post Formatting</h4>
+            <p>
+                You can use basic web formatting in your comments.
+                If your email uses HTML formatting or is written in Markdown format, I'll do my best to recreate it in my post.
+            </p>
+
+            <h4 id="alternatives-to-email">Alternatives to Email</h4>
+            <p>
+                If you prefer, you can mail me, or hand me a written comment in person.
+                Just make sure all required information is present (see <a href="#what-to-include">What to Include</a>).
+            </p>
+        </article>
+{% endblock %}

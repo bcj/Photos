@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block body %}
+        <article>
+            <h1>{{page_title}}</h1>
+            <h4>{{date}}</h4>
+            {% if description %}<p>{{description}}</p>{% endif %}
+            {% for info in images %}
+            <a class="linked-image" href="../images/{{info.file}}" target="_blank" title="{{info.image.alt}}">
+                <img src="{{path_to_root}}/images/{{info.file}}" alt="{{info.image.alt}}">
+            </a>
+            {% if info.image.caption %}<p>{{info.image.caption}}</p>{% endif %}
+            {% endfor %}{% if tags %}
+            <hr>
+            <div class="hashtags">
+                {% for tag in tags | sort %}<span class="hashtag">
+                    {% for index in range(tag|count) %}{% if index == 0 %}#{% else %}/{% endif %}<a href="{{path_to_root}}/tags/{{tag_paths['/'.join(tag[:index + 1])]}}.html">{{tag[index]}}</a>{% endfor %}</span>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </article>{% if users %}
+        <article>
+            <h2 id="comments">Comments<a href="#comments" class="hover-anchor"> ¶</a></h2>
+            {% for email, comment in comments or [] %}
+            <section class="comment">
+                <h5>{{users[email]}}</h5>
+                <p>{{comment}}</p>
+            </section>
+            {% endfor %}
+            <a href="mailto:comments+{{date}}@{{domain}}?subject={{page_title}}">Add Comment</a> (<a href="{{path_to_root}}/commenting.html">?</a>)
+        </article>{% endif %}
+{% endblock %}

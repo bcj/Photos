@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% macro build_tree(tags) -%}
+{% if tags %}
+<ul>
+{% for tag, info in tags.items() | sort %}
+<li><a href="./{{info['path']}}.html">{{tag}}</a>{{build_tree(info["children"])}}</li>
+{% endfor %}
+</ul>
+{% endif %}
+{%- endmacro %}
+{% block body %}
+        <article>
+            <h1>{{page_title}}</h1>
+            {% if description %}<p>{{description}}</p>{% endif %}
+            {{build_tree(tags)}}
+        </article>
+{% endblock %}

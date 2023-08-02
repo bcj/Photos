@@ -1,0 +1,125 @@
+:root {
+    --background-color: {{colours.light.background.page}};
+    --article-color: {{colours.light.background.article}};
+    --text-color: {{colours.light.text.text}};
+    --accent-color: {{colours.light.text.accent}};
+    --link-color: {{colours.light.text.link}};
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background-color: {{colours.dark.background.page}};
+        --article-color: {{colours.dark.background.article}};
+        --text-color: {{colours.dark.text.text}};
+        --accent-color: {{colours.dark.text.accent}};
+        --link-color: {{colours.dark.text.link}};
+    }
+}
+
+a {
+    color: var(--link-color);
+}
+
+body {
+    font-family: sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    border-top: 0em;
+    border-bottom-left-radius: 10px;
+    background-color: var(--article-color);
+    border-style: solid;
+    border-right-style: none;
+    border-color: var(--accent-color);
+    box-shadow: 0.25em 0.25em 0.5em black;
+}
+
+article {
+    max-width: 1000px;
+    background-color: var(--article-color);
+    padding: 0.5em;
+    border-radius: 1em;
+    margin-bottom: 1em;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+.linked-image:first-of-type img {
+    border-top-left-radius: 1em;
+    border-top-right-radius: 1em;
+}
+
+.linked-image:last-of-type img {
+    border-bottom-left-radius: 1em;
+    border-bottom-right-radius: 1em;
+}
+
+h1, h2, h3, h4 {
+    text-align: center;
+}
+
+h1 {
+    color: var(--accent-color);
+    margin-bottom: 0.5em;
+}
+
+h2 {
+    color: var(--accent-color);
+}
+
+h4 {
+    margin: 0em;
+}
+
+.hover-anchor {
+    display: none;
+}
+
+:is(h1, h2, h3, h4, h5, h6):hover .hover-anchor {
+    display: unset;
+}
+
+.page-navigation {
+    /*max-width: 1000px;
+    background-color: var(--article-color);
+    padding: 0.5em;
+    border-radius: 1em;
+    margin-bottom: 1em;*/
+    text-align: center;
+}
+
+.nav-item {
+    display: inline-block;
+    min-width: 5em;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+.hashtag:first-of-type {
+    margin-left: 0em;
+}
+
+.hashtag {
+    margin-left: 1em;
+}
+
+.comment {
+    border-style: solid;
+    border-color: var(--background-color);
+    border-radius: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
+    margin-bottom: 1em;
+}
